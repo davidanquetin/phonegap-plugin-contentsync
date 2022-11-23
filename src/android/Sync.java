@@ -858,7 +858,7 @@ public class Sync extends CordovaPlugin {
                     file.getParentFile().mkdirs();
                     //fix
                     String canonicalPath = file.getCanonicalPath();
-                    if (!canonicalPath.startsWith(outputDirectory){
+                    if (!canonicalPath.startsWith(outputDirectory)){
                         return false;
                     }
 
