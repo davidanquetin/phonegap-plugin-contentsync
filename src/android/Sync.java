@@ -856,7 +856,9 @@ public class Sync extends CordovaPlugin {
                 } else {
                     File file = new File(outputDirectory + compressedName);
                     file.getParentFile().mkdirs();
-                    if(file.exists() || file.createNewFile()){
+                    //fix
+                    String canonicalPath = file.getCanonicalPath();
+                    if(if (!canonicalPath.startsWith(outputDirectory)) && (file.exists() || file.createNewFile())){
                         Log.w(LOG_TAG, "extracting: " + file.getPath());
                         FileOutputStream fout = new FileOutputStream(file);
                         int count;
