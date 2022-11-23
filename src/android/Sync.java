@@ -858,16 +858,22 @@ public class Sync extends CordovaPlugin {
                     file.getParentFile().mkdirs();
                     //fix
                     String canonicalPath = file.getCanonicalPath();
-                    if(if (!canonicalPath.startsWith(outputDirectory)) && (file.exists() || file.createNewFile())){
-                        Log.w(LOG_TAG, "extracting: " + file.getPath());
-                        FileOutputStream fout = new FileOutputStream(file);
-                        int count;
-                        while ((count = zis.read(buffer)) != -1)
-                        {
-                            fout.write(buffer, 0, count);
-                        }
-                        fout.close();
+                    if (!canonicalPath.startsWith(outputDirectory){
+                        return false;
                     }
+
+                    if(file.exists() || file.createNewFile()){
+                    Log.w(LOG_TAG, "extracting: " + file.getPath());
+                    FileOutputStream fout = new FileOutputStream(file);
+                    int count;
+                    while ((count = zis.read(buffer)) != -1)
+                    {
+                        fout.write(buffer, 0, count);
+                    }
+                    fout.close();
+
+                }
+
 
                 }
                 progress.addLoaded(1);
