@@ -857,17 +857,13 @@ public class Sync extends CordovaPlugin {
                     File file = new File(outputDirectory + compressedName);
                     file.getParentFile().mkdirs();
                     //fix
-                    String canonicalPath = file.getCanonicalPath();
-                     Log.w(LOG_TAG, "canonical path: " + canonicalPath);
-                     Log.w(LOG_TAG, "outputdirectory path: " + outputDirectory);
-                     Log.w(LOG_TAG, "starts: " + canonicalPath.startsWith(outputDirectory));
-
+                   /* String canonicalPath = file.getCanonicalPath();
                     if (!canonicalPath.startsWith(outputDirectory)){
                         String errorMessage = "must stop here "  + canonicalPath + " / "+ outputDirectory + " / " + canonicalPath.startsWith(outputDirectory);
                          Log.e(LOG_TAG,errorMessage);
                          sendErrorMessage(errorMessage, UNZIP_ERROR, callbackContext);
                         //return false;
-                    }
+                    }*/
 
                     if(file.exists() || file.createNewFile()){
                     Log.w(LOG_TAG, "extracting: " + file.getPath());
