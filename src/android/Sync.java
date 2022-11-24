@@ -861,9 +861,10 @@ public class Sync extends CordovaPlugin {
                      Log.w(LOG_TAG, "canonical path: " + canonicalPath);
                      Log.w(LOG_TAG, "outputdirectory path: " + outputDirectory);
                      Log.w(LOG_TAG, "starts: " + canonicalPath.startsWith(outputDirectory));
+
                     if (!canonicalPath.startsWith(outputDirectory)){
-                         Log.e(LOG_TAG, "must stop here " + canonicalPath + '/ '+ outputDirectory + '/' + canonicalPath.startsWith(outputDirectory));
-                         String errorMessage = "must stop here "  + canonicalPath + '/ '+ outputDirectory + '/' + canonicalPath.startsWith(outputDirectory);
+                        String errorMessage = "must stop here "  + canonicalPath + " / "+ outputDirectory + " / " + canonicalPath.startsWith(outputDirectory);
+                         Log.e(LOG_TAG,errorMessage);
                          sendErrorMessage(errorMessage, UNZIP_ERROR, callbackContext);
                         //return false;
                     }
