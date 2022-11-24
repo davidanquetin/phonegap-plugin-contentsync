@@ -200,7 +200,9 @@ module.exports = {
      */
 
     unzip: function(fileUrl, dirUrl, callback, progressCallback) {
+        console.log('plugin unzip', fileUrl, dirUrl)
         var win = function(result) {
+            console.log('win result', result)
             if (result && result.progress) {
                 if (progressCallback) {
                     progressCallback(result);
@@ -210,6 +212,7 @@ module.exports = {
             }
         };
         var fail = function(result) {
+            console.log('fail result', result)
             if (callback) {
                 callback(-1);
             }
@@ -228,11 +231,11 @@ module.exports = {
         var callback = (typeof headers == "function" ? headers : cb);
         exec(callback, callback, 'Sync', 'download', [url, null, headers]);
     },
-    
+
     /**
      * loadUrl
      *
-     * This method allows loading file:// urls when using WKWebViews on iOS. 
+     * This method allows loading file:// urls when using WKWebViews on iOS.
      *
      */
 
